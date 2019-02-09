@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE xml>
+	<jboss-web>
+		<context-root>MyApplication</context-root>
+		<security-domain>jaspitest</security-domain>
+		
+		<resource-ref>
+			<res-ref-name>jdbc/MyDatabase</res-ref-name>
+			<mapped-name>java:/jdbc/MyDatabase</mapped-name>
+		</resource-ref>
+		
+		<resource-env-ref>
+			<resource-env-ref-name>login/MyDatabaseUserId</resource-env-ref-name>
+			<resource-env-ref-type>java.lang.String</resource-env-ref-type>
+			<lookup-name>java:global/db/mydatabase/MyDatabaseUserId</lookup-name>
+		</resource-env-ref>
+		
+		<resource-ref>
+			<res-ref-name>ee/concurrency/executor/default</res-ref-name>
+			<mapped-name>java:jboss/ee/concurrency/executor/default</mapped-name>
+		</resource-ref>
+		
+		<resource-ref>
+			<res-ref-name>mail/JMail</res-ref-name>
+			<res-type>javax.mail.Session</res-type>
+			<res-auth>Container</res-auth>
+			<mapped-name>java:jboss/mail/Default</mapped-name>
+		</resource-ref>
+		
+	</jboss-web>

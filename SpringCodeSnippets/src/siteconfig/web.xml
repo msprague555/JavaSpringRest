@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+	<display-name>MyApplication</display-name>
+	<welcome-file-list>
+		<welcome-file>swagger-ui.html</welcome-file>
+	</welcome-file-list>
+	<error-page>
+		<error-code>401</error-code>
+		<location>/accessError/401</location>
+	</error-page>
+	<error-page>
+		<error-code>403</error-code>
+		<location>/accessError/403</location>
+	</error-page>
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>prot</web-resource-name>
+			<url-pattern>/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>*</role-name>
+		</auth-constraint>
+	</security-constraint>
+	<security-role>
+		<role-name>ACCESS_LEVEL_READ</role-name>
+	</security-role>
+	<security-role>
+		<role-name>ACCESS_LEVEL_WRITE</role-name>
+	</security-role>
+	<security-role>
+		<role-name>*</role-name>
+	</security-role>
+</web-app>
